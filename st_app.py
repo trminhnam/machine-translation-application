@@ -1,6 +1,5 @@
 import os
 from datetime import datetime
-import requests
 import streamlit as st
 import torch
 import pandas as pd
@@ -38,7 +37,7 @@ def translate(source):
 
     return translation
 
-@st.cache(persist=True,allow_output_mutation=False,show_spinner=True,suppress_st_warning=True)
+@st.cache(persist=True,allow_output_mutation=True,show_spinner=True,suppress_st_warning=True)
 def load_history(history_path=r"data/history.jsonl"):
     with jsonlines.open(history_path) as reader:
         history = [obj for obj in reader]
@@ -79,4 +78,4 @@ with translate_tab:
             
 with history_tab:
     st.markdown("## 📜 History")
-    st.dataframe(pd.DataFrame(history, columns=["time", "source", "translation"]))
+    st.dataframe(pd.DataFrame(history, columns=["time", "source", "translation"]), use_container_width=True)
