@@ -8,6 +8,7 @@ from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 
 model_path = r"models/mbart-large-50-one-to-many-mmt"
 device = 'cpu' if not torch.cuda.is_available() else 'cuda'
+history_path = r"data/history.jsonl"
 
 # load model
 @st.cache(allow_output_mutation=True,show_spinner=True,suppress_st_warning=True)
@@ -31,14 +32,14 @@ def translate(source):
         )
         translation = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)[0]
 
-    with jsonlines.open(r"data/history.jsonl", mode='a') as writer:
+    with jsonlines.open(history_path, mode='a') as writer:
         writer.write({"time": datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "source": source, "translation": translation, })
     history.append({"time": datetime.now().strftime("%d/%m/%Y %H:%M:%S"), "source": source, "translation": translation, })
 
     return translation
 
 @st.cache(persist=True,allow_output_mutation=True,show_spinner=True,suppress_st_warning=True)
-def load_history(history_path=r"data/history.jsonl"):
+def load_history(history_path):
     with jsonlines.open(history_path) as reader:
         history = [obj for obj in reader]
     database = {obj["source"]: obj["translation"] for obj in history}
