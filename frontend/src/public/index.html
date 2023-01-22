@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/spinner.css" />
+
+        <script src="js/main.js" defer></script>
+        <title>Machine Translation with mBART50</title>
+    </head>
+    <body style="background-color: #27cfe9">
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <h2>Machine Translation with mBART50</h2>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li>
+                            <a href="https://www.aisolus.com/" target="_blank"
+                                >AISolus</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="showcase">
+                <form id="source-form">
+                    <h1>Enter English text to get Vietnamese translation</h1>
+                    <div class="form-control">
+                        <input
+                            type="text"
+                            id="source"
+                            placeholder="Enter source text here"
+                        />
+                    </div>
+
+                    <button type="submit" class="btn">Translate</button>
+
+                    <div class="form-control">
+                        <h2 class="msg"></h2>
+                        <textarea
+                            type="text"
+                            id="translation"
+                            placeholder="Translation will be shown here"
+                            readonly
+                        ></textarea>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <div class="spinner"></div>
+    </body>
+</html>
