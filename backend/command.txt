@@ -1,0 +1,8 @@
+docker build -t test_program/1.0 -f Dockerfile . # build image from Dockerfile
+docker image ls -a # list all images
+docker container ls -a # list all containers (including stopped)
+docker ps -a # list all containers (including stopped)
+docker ps # list all running containers
+docker run -it test_program/1.0 # run container from image
+docker image rm test_program/1.0 # remove image
+docker start -i <container_id> # start container
