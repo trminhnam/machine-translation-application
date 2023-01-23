@@ -31,9 +31,9 @@ def translate(text):
 
     return translation
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def home():
-    return render_template("index.html")
+    return ("Hello World. To use the API, please make a POST request to /translation_api with the body containing the source text. The response will be a JSON object containing the translation.")
 
 @app.route('/translation_api', methods=["GET", "POST"])
 def translation_api():
@@ -49,8 +49,8 @@ def translation_api():
     else:
         return ("nothing")
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', 
-            port=8080, 
-            debug=True
-    )
+# if __name__ == "__main__":
+#     app.run(host='0.0.0.0', 
+#             port=8334, 
+#             debug=True
+#     )
