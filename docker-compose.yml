@@ -1,0 +1,30 @@
+# Path: docker-compose.yml
+version: "3.8"
+services:
+    backend:
+        build:
+            context: ./backend/
+            dockerfile: Dockerfile
+        container_name: mt_backend
+        ports:
+            - 8334:8334
+        volumes:
+            - ./backend:/app
+        environment:
+            - NODE_ENV=production
+            - PORT=8334
+
+    frontend:
+        build:
+            context: ./frontend/
+            dockerfile: Dockerfile
+        container_name: mt_frontend
+        ports:
+            - 8333:8333
+        volumes:
+            - ./frontend:/app
+        environment:
+            - NODE_ENV=production
+            - PORT=8333
+            - TRANSLATE_HOST=http://backend:8334
+            - TRANSLATE_PATH=/translation_api
