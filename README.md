@@ -1,4 +1,4 @@
-# machine-translation-application
+# Machine Translation Application with mBART50
 
 ## Folder structure:
 
@@ -18,17 +18,17 @@
     │   │   └── index.ts      # Express app
     │   │   └── server.ts     # Server
     │   │
-    │   ├── .dockerignore # Dockerignore for frontend
-    │   ├── .gitignore    # Gitignore for frontend
-    │   ├── Dockerfile    # Dockerfile for frontend
-    │   ├── nodemon.json  # Nodemon config
-    │   ├── package.json  # Node dependencies
-    │   └── tsconfig.json # TypeScript config
+    │   ├── .dockerignore    # Dockerignore for frontend
+    │   ├── .gitignore       # Gitignore for frontend
+    │   ├── Dockerfile       # Dockerfile for frontend
+    │   ├── nodemon.json     # Nodemon config
+    │   ├── package.json     # Node dependencies
+    │   └── tsconfig.json    # TypeScript config
     │
-    ├── docker-compose.yml # Docker-compose for frontend and backend
-    └── README.md          # This file
+    ├── docker-compose.yml   # Docker-compose for frontend and backend
+    └── README.md            # This file
 
-## How to run:
+## How to build and run the project:
 
 To run the project locally, you need to have [Docker](https://docs.docker.com/get-docker/) and run the following command:
 
