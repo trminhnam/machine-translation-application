@@ -1,5 +1,5 @@
 import gdown
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+from transformers import MBart50TokenizerFast, MBartForConditionalGeneration
 
 # gdown.download(
 #     "https://drive.google.com/file/d/1vRyq2OBsVTt9NRaea4NGtGhifb1VdC2I&confirm=t", 

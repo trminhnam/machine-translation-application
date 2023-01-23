@@ -1,11 +1,17 @@
+import warnings
 from typing import ContextManager
-from flask import Flask, render_template, request, jsonify
-from googletrans import Translator
+
 import torch
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+from flask import Flask, jsonify, render_template, request
+from googletrans import Translator
+from transformers import MBart50TokenizerFast, MBartForConditionalGeneration
+
+warnings.filterwarnings("ignore")
+
+device = 'cpu' if not torch.cuda.is_available() else 'cuda'
+print(f'Using device: {device}')
 
 model_path = r"models/mbart-large-50-one-to-many-mmt"
-device = 'cpu' if not torch.cuda.is_available() else 'cuda'
 history_path = r"data/history.jsonl"
 
 model = MBartForConditionalGeneration.from_pretrained(model_path)

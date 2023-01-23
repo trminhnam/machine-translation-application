@@ -6,3 +6,5 @@ docker ps # list all running containers
 docker run -it test_program/1.0 # run container from image
 docker image rm test_program/1.0 # remove image
 docker start -i <container_id> # start container
+
+flask run -h 0.0.0.0 -p 8334

@@ -1,10 +1,11 @@
 import os
 from datetime import datetime
+
+import jsonlines
+import pandas as pd
 import streamlit as st
 import torch
-import pandas as pd
-import jsonlines
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
+from transformers import MBart50TokenizerFast, MBartForConditionalGeneration
 
 model_path = r"models/mbart-large-50-one-to-many-mmt"
 device = 'cpu' if not torch.cuda.is_available() else 'cuda'
